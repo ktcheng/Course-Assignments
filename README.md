@@ -11,3 +11,4 @@ N.B. As with any academic code, the posting of this repository is to demonstrate
 - EC ENGR 131A: Probability and Statistics (MATLAB: Statistics)
 - COM SCI 31: Introduction to Computer Science I (C++)
 - COM SCI 32: Introduction to Computer Science II (C++: Data Structures)
+- COM SCI 33: Introduction to Computer Organization (C: Operating Systems)
