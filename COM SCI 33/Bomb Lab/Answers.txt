@@ -1,0 +1,18 @@
+Phase 1: p
+Phase 2: 1 2 4 7 11 16
+Phase 2 Alternative Answer (Secret Phase): 18 19 21 24 28 33
+Phase 3: 0 6
+Phase 4: 5 115
+Phase 5: 176 2
+Phase 6: 3 4 6 1 2 5
+Secret Phase: eeiiiiddid
+
+Array_2d
+ff21 ff00 0000 ffff
+ff00 00ff 00ff 00ff
+ffff 00ff ff00 00ff
+ff00 0000 0000 00ff
+ffff 00ff ff00 00ff
+ffff 0000 ffff 00ff
+ff00 ff00 0000 00ff
+ffff ffff ffff ffff
